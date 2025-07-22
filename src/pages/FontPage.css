@@ -1,0 +1,7 @@
+.fonts {
+  align-items: end;
+}
+
+.fonts * {
+  width: fit-content;
+}

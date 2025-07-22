@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Navigate,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+// Style
+import "./App.css";
+// Layouts
+import Layout from "./components/layout/Layout";
+// Routes
+import { appRoutes } from "./routes/AppRoutes";
+// import { ProtectedRoute } from "./routes/ProtectedRoute";
+// Components
+import ScrollToTop from "./components/utils/ScrollToTop";
+import PageNotFound from "./pages/PageNotFound";
+// Context
+import { useTheme } from "./context/ThemeContext";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { isDarkMode } = useTheme();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          {/* Public route - redirect if already logged in */}
+          {/* <Route
+            path="/login"
+            element={
+              <RedirectIfLoggedIn>
+                <LoginPage />
+              </RedirectIfLoggedIn>
+            }
+          /> */}
+          {/* Redirect root */}
+          {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
+          {/* Protected routes */}
+          {appRoutes.map(({ path, element, title }) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                // <ProtectedRoute>
+                <Layout>{element}</Layout>
+                // </ProtectedRoute>
+              }
+            />
+          ))}
+          {/* Only admin */}
+          {/* <Route
+            path="/admin-panel"
+            element={
+              <ProtectedRoute adminOnly>
+                <Layout pageTitle="Admin Panel">
+                  <AdminPanelPage API_URL={API_URL} />
+                </Layout>
+              </ProtectedRoute>
+            }
+          /> */}
+          {/* 404 */}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
-
-export default App

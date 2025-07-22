@@ -1,0 +1,141 @@
+.date-range-wrapper {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.date-range-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--n600);
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--n700);
+  transition: background-color 0.4s ease;
+  user-select: none;
+}
+
+.date-range-picker:hover {
+  background-color: var(--bg);
+}
+
+.date-range-picker .chevron {
+  transition: transform 0.3s ease;
+}
+
+.date-range-picker .rotate-down {
+  transform: rotate(180deg);
+}
+
+.date-range-picker .small-p {
+  color: var(--n400);
+}
+
+.rdrCalendarWrapper.rdrDateRangeWrapper {
+  width: 100% !important;
+  max-width: 100vw;
+}
+
+/* DARK THEME OVERRIDE */
+.rdrDateDisplayWrapper {
+  background-color: var(--bg) !important;
+}
+
+.rdrDateInput.rdrDateDisplayItem.rdrDateDisplayItemActive,
+.rdrDateInput.rdrDateDisplayItem {
+  background-color: var(--card) !important;
+}
+
+.rdrMonthPicker *,
+.rdrYearPicker * {
+  color: var(--text) !important;
+}
+
+.rdrCalendarWrapper {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--n600);
+  border-radius: 6px;
+}
+
+.rdrMonthAndYearWrapper,
+.rdrMonths,
+.rdrWeekDays {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.rdrWeekDay {
+  display: none !important;
+  color: var(--text) !important; /* Fallback if displayed anyway */
+}
+
+.rdrDayNumber * {
+  color: var(--n200) !important;
+}
+
+.rdrDayDisabled {
+  background-color: var(--bg) !important;
+  color: var(--n600) !important;
+  cursor: not-allowed;
+}
+
+.rdrSelected,
+.rdrInRange,
+.rdrStartEdge,
+.rdrEndEdge {
+  background-color: var(--primary) !important;
+  color: var(--bg) !important;
+}
+
+.rdrDay:hover {
+  background-color: var(--n700);
+}
+
+.rdrDateDisplay {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--n600);
+}
+
+.rdrDateDisplay * {
+  color: var(--n200) !important;
+}
+
+.rdrDateInput input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--n600);
+}
+
+.rdrMonthPicker select,
+.rdrYearPicker select {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+.calendar-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 1000;
+  background-color: var(--bg);
+  border: 1px solid var(--n700);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.calendar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}

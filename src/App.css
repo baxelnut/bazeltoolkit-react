@@ -1,42 +1,110 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;
+  margin: 0;
+  text-align: center; /* default alignment */
+}
+
+.app-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Global table wrapper */
+.table-wrapper {
+  width: 100%;
+  min-height: 300px;
+  height: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--n600);
+  background: rgb(var(--bg-rgb), 0.5);
+  border-radius: 6px;
+  display: flex;
+}
+
+/* Global plavceholder for empty container */
+.empty-state {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Global card */
 .card {
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  text-align: start;
+  cursor: default;
+  overflow: hidden;
+
+  background-color: var(--card);
+  border: 1px solid var(--n600);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease-in-out;
 }
 
-.read-the-docs {
-  color: #888;
+/* Card layouts  */
+.cards-container {
+  gap: 1rem;
+}
+
+.cards-container.col {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.cards-container.row,
+.cards-container.row-1-1 {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.cards-container.row-1-1 > div {
+  flex: 1;
+}
+
+/* Grid layout (mobile first) */
+.cards-container.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* mobile: 1 col */
+}
+
+/* Breakpoints — scale up */
+@media (min-width: 500px) {
+  .cards-container.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 978px) {
+  .cards-container.grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1224px) {
+  .cards-container.grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .table-wrapper {
+    min-height: 400px;
+  }
+}
+
+/* Dekstop hover (optional but classy) */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
 }

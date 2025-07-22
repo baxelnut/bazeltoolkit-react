@@ -1,0 +1,7 @@
+.colors.n500 *,
+.colors.n400 *,
+.colors.n300 *,
+.colors.n200 *,
+.colors.text * {
+  color: var(--bg);
+}

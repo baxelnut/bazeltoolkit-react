@@ -1,0 +1,26 @@
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.tag-input input {
+  border: none;
+  outline: none;
+  background: transparent;
+  min-width: 80px;
+}
+
+.tag {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

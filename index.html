@@ -1,13 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta basics -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+
+    <!-- SEO -->
+    <title>BazelToolkit – React</title>
+    <meta
+      name="description"
+      content="Reusable React components and hooks for blazing-fast development. Built with consistency and speed in mind."
+    />
+    <meta
+      name="keywords"
+      content="React, Component Library, UI Kit, Hooks, BazelToolkit, Design System, JavaScript, UI, UX"
+    />
+    <meta name="author" content="BazelToolkit" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="BazelToolkit – React Components" />
+    <meta
+      property="og:description"
+      content="Your HQ for reusable React components, styles, and utilities. Write less. Build faster."
+    />
+    <meta property="og:image" content="/vite.svg" />
+    <meta property="og:url" content="https://bazeltoolkit.dev" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BazelToolkit – React Components" />
+    <meta
+      name="twitter:description"
+      content="Reusable React components and tools to accelerate your UI development."
+    />
+    <meta name="twitter:image" content="/vite.svg" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" href="/vite.svg" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#1e1e2f" />
+
+    <!-- PWA Support (optional) -->
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
+
+    <!-- Prefetch & Preconnect (optimize load time) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Fonts / Styles (if any) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" /> -->
+
+    <!-- Accessibility tip: Give meaningful page title + lang attr -->
   </head>
+
   <body>
-    <div id="root"></div>
+    <div id="root" role="main"></div>
+    <script type="module">
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
